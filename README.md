@@ -35,7 +35,7 @@ If you find this work useful, please cite:
 
 ## Related Work
 
-- [FourierPET](https://github.com/xiaochaorouz/FourierPET) — FourierPET: Deep Fourier-based Unrolled Network for Low-count PET Reconstruction **(AAAI 2026 Oral)**.
+- [FourierPET](https://github.com/xiaochaorouz/FourierPET): Deep Fourier-based Unrolled Network for Low-count PET Reconstruction **(AAAI 2026 Oral)**.
 
 ## License
 
