@@ -1,0 +1,15 @@
+numpy<2.0.0
+torch==2.1.1
+torchvision==0.16.1
+matplotlib
+pytorch_wavelets
+torch_radon
+scikit-image
+pytorch_msssim
+easydict
+pyyaml
+lmdb
+Pillow
+tqdm
+colorama
+termcolor

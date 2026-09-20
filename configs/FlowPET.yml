@@ -1,0 +1,85 @@
+# FlowPET full model: main-text equations and training settings.
+# Batch 8 is interpreted as global; 4 ranks therefore use 2 images each.
+exp_name: FlowPET_Pediatric_1percent
+root_dir: outputs
+set_random_seed: 42
+train_db_name: Pediatric
+val_db_name: Pediatric
+input_mode: image
+load_keys:
+- full
+- ultra_ultra_low
+dataset_paths:
+  train:
+    full: null
+    ultra_ultra_low: null
+  val:
+    full: null
+    ultra_ultra_low: null
+do_normalize: true
+do_joint_augment: true
+threshold: 1.0
+image_size: 128
+val_image_size: 128
+train_input_keys:
+- ultra_ultra_low
+val_input_keys:
+- ultra_ultra_low
+imaging_system: PET
+AT_type: FBP
+imaging_system_kwargs:
+  angles_count: 128
+  del_count: 128
+  circle_mask: true
+criterion: mse
+loss_type:
+  loss_fm:
+    weight: 1.0
+    domain: image
+    loss_vx_weight: 1.0
+    loss_vp_weight: 1.0
+backbone: FlowPET
+backbone_kwargs:
+  inp_channels: 1
+  model_channels: 128
+  num_res_blocks: 2
+  attention_resolutions:
+  - 16
+  - 8
+  channel_mult:
+  - 1
+  - 2
+  - 4
+  - 8
+  use_checkpoint: false
+  num_heads: 1
+  dropout: 0.0
+  adapter_channels: null
+  use_condition: true
+optimizer: adamw
+optimizer_kwargs:
+  lr: 0.0001
+  betas:
+  - 0.9
+  - 0.999
+  weight_decay: 1.0e-06
+scheduler: CosineAnnealingLR
+scheduler_kwargs:
+  T_max: 500000
+  eta_min: 1.0e-06
+num_workers: 0
+batch_size: 8
+gradient_accumulation_steps: 1
+tensorboard_log_iteration_freq: 100
+tensorboard_log_epoch_freq: 1
+data_range_mode: '[0,1]'
+momentum_type: range_null
+sampling_steps: 4
+val_sampling_steps: 4
+sample_during_training: false
+solver: leapfrog
+gamma: 0.01
+max_steps: 500000
+scheduler_interval: step
+batch_size_scope: global
+measurement_key: sinogram

@@ -1,0 +1,52 @@
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Training and evaluation outputs
+outputs*/
+output_dir*/
+checkpoints/
+results/
+batch_evaluation_results/
+figures/
+*logs/
+wandb/
+runs/
+events.out.tfevents.*
+*.out
+*.err
+
+# Weights and private data
+*.pth
+*.pth.tar
+*.pt
+*.ckpt
+*.safetensors
+*.pkl
+*.npy
+*.npz
+*.lmdb
+*.mdb
+*.nii
+*.nii.gz
+*.dcm
+*.h5
+*.hdf5
+*.mat
+datasets/
+private/
+
+# Local files
+.env*
+*.pem
+*.key
+*.ipynb
+*.pdf
+.vscode/
+.idea/
+.DS_Store
+
+# Local reference material
+README_fourierPET.md
